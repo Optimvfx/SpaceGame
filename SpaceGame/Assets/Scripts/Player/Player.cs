@@ -1,30 +1,47 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
     [Range(0, 1000)]
-    [SerializeField] private int _maximalHealth;
+    [SerializeField] private uint _maximalHealth;
 
-    private int _currentHealth;
+    private Health _health;
 
-    public float NoramlizdeHealth => (float)_currentHealth / _maximalHealth;
+    public float NoramlizdeHealth => (float)_health.Value / _maximalHealth;
 
     public event UnityAction<int, int> HealthChanged;
+    public event UnityAction TakeDamage;
+    public event UnityAction OnDie;
 
     private void Awake()
     {
-        _currentHealth = _maximalHealth;
+        _health = GetComponent<Health>();
+        _health.Init(_maximalHealth);
     }
 
-    public void ApplyDamage(int damage)
+    private void OnEnable()
     {
-        _currentHealth -= damage;
-        HealthChanged?.Invoke(_currentHealth, _maximalHealth);
+        _health.OnDie += Die;
+    }
 
-        if (_currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
+    private void OnDisable()
+    {
+        _health.OnDie -= Die;
+    }
+
+    public void ApplyDamage(uint damage)
+    {
+        _health.TakeDamage(damage);
+
+        HealthChanged?.Invoke(_health.Value, (int)_maximalHealth);
+
+        TakeDamage?.Invoke();
+    }
+
+    public void Die()
+    {
+        OnDie?.Invoke();
     }
 }

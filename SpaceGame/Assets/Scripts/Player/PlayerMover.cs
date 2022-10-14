@@ -9,7 +9,7 @@ public class PlayerMover : MonoBehaviour
     [Header("Rotation")]
     [SerializeField] private Angle _angleToMoveDirectionCoefficient = 60;
 
-    [Header("Move Direction")]
+    [Header("RecalculateMoveDirection Direction")]
     [SerializeField] private AnimationCurve _moveDirectionChangeSpeed;
     [SerializeField] private UFloat _moveDirectionChangeModiffier;
 
@@ -20,7 +20,7 @@ public class PlayerMover : MonoBehaviour
     private void Update()
     {
         ChangeCurrentMoveDirection(Time.deltaTime);
-        RotateByMoveDirection();
+        //RotateByMoveDirection();
         MoveToDirection(Time.deltaTime);
     }
 
