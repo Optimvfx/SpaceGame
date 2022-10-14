@@ -1,17 +1,18 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerInventory))]
 public class PlayerShoter : MonoBehaviour
 {
-    private readonly uint MaximalBulitCount = 100;
+    private readonly uint MaximalBulitCount = 200;
 
     [SerializeField] private Transform _bulletContainer;
     
     private PlayerInventory _inventory;
 
-    private LinkedList<Bullet> _bullets;
+    private List<Bullet> _bullets;
 
     public event UnityAction OnShot;
 
@@ -19,7 +20,7 @@ public class PlayerShoter : MonoBehaviour
     {
         _inventory = GetComponent<PlayerInventory>();
 
-        _bullets = new LinkedList<Bullet>();
+        _bullets = new List<Bullet>();
     }
 
     public void TryShoot()
@@ -44,13 +45,13 @@ public class PlayerShoter : MonoBehaviour
 
     private void AddBullet(Bullet newBullet)
     {
-        _bullets.AddFirst(newBullet);
+        _bullets.Add(newBullet);
 
         if (_bullets.Count > MaximalBulitCount)
         {
-            var removingBullet = _bullets.Last.Value;
+            var removingBullet = _bullets[0];
 
-            _bullets.RemoveLast();
+            _bullets.RemoveAt(0);
 
             Destroy(removingBullet.gameObject);
         }
