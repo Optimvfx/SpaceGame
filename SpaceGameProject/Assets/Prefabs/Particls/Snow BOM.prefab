@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 9131842322380231328}
   - component: {fileID: 148901385277966903}
   - component: {fileID: 7154502911992249910}
+  - component: {fileID: -7906705116629439007}
+  - component: {fileID: -1587355660726644064}
   m_Layer: 0
   m_Name: Snow BOM
   m_TagString: Untagged
@@ -4829,7 +4831,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ccfa5577ed24d8c4fabc1c2981c9f3b1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4913,3 +4915,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7906705116629439007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8373951603777888399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-1587355660726644064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8373951603777888399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5591aeb4cf87f4786446c0f624a3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeBefforDie:
+    _value: 5

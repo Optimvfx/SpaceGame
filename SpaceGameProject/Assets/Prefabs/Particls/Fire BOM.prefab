@@ -4828,6 +4828,8 @@ GameObject:
   - component: {fileID: 3232326946550377809}
   - component: {fileID: 3894850957218623520}
   - component: {fileID: 8725466257473863710}
+  - component: {fileID: -4135490934300593068}
+  - component: {fileID: -5221248766600461402}
   m_Layer: 0
   m_Name: Fire BOM
   m_TagString: Untagged
@@ -9648,7 +9650,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ccfa5577ed24d8c4fabc1c2981c9f3b1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9732,6 +9734,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-4135490934300593068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820891082450572214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-5221248766600461402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820891082450572214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5591aeb4cf87f4786446c0f624a3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeBefforDie:
+    _value: 5
 --- !u!1 &6996005759435711299
 GameObject:
   m_ObjectHideFlags: 0

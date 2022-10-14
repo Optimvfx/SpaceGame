@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1815369152630621}
   - component: {fileID: 4373324498179999650}
   - component: {fileID: 6144416947246012986}
+  - component: {fileID: -6881197593083910589}
   m_Layer: 0
   m_Name: Meteor (2)
   m_TagString: Untagged
@@ -100,7 +101,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -209,6 +210,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6668416280909509750, guid: 2704565f58de4034691b9b829f9f03e0, type: 3}
+--- !u!114 &-6881197593083910589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2304421090678293535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b40d8044d00b354f97fc280d7031242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 60
 --- !u!1001 &2298386265361218882
 PrefabInstance:
   m_ObjectHideFlags: 0
