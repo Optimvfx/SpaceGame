@@ -7,14 +7,14 @@ using System.Linq;
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private Transform _weaponContainer;
-    [SerializeField] private List<Weapon> _startWeapons;
+    [SerializeField] private List<Weapon<PlayerBullet.PlayerBulletIgnore>> _startWeapons;
 
-    private List<Weapon> _weapons;
+    private List<Weapon<PlayerBullet.PlayerBulletIgnore>> _weapons;
 
     private int _currentWeaponNumber = 0;
 
-    public int Money { get; private set; }
-    public Weapon CurrentWeapon => _weapons[_currentWeaponNumber];
+    public uint Money { get; private set; }
+    public Weapon<PlayerBullet.PlayerBulletIgnore> CurrentWeapon => _weapons[_currentWeaponNumber];
 
     public event UnityAction<int> MoneyChanged;
 
@@ -26,10 +26,10 @@ public class PlayerInventory : MonoBehaviour
         CreateWeapons(_startWeapons.Distinct());
     }
 
-    public void AddMoney(int money)
+    public void AddMoney(uint money)
     {
         Money += money;
-        MoneyChanged?.Invoke(Money);
+        MoneyChanged?.Invoke((int)Money);
     }
 
     public void SellectNextWeapon()
@@ -50,9 +50,9 @@ public class PlayerInventory : MonoBehaviour
             _currentWeaponNumber += _weapons.Count;
     }
 
-    private void CreateWeapons(IEnumerable<Weapon> weapons)
+    private void CreateWeapons(IEnumerable<Weapon<PlayerBullet.PlayerBulletIgnore>> weapons)
     {
-        _weapons = new List<Weapon>();
+        _weapons = new List<Weapon<PlayerBullet.PlayerBulletIgnore>>();
 
         foreach (var weapon in weapons)
         {
@@ -60,7 +60,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private void AddWeapon(Weapon weapon)
+    private void AddWeapon(Weapon<PlayerBullet.PlayerBulletIgnore> weapon)
     {
         var newWeapon = Instantiate(weapon, _weaponContainer);
 

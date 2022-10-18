@@ -69,7 +69,7 @@ namespace TMPro.Examples
                     m_frameCounter_transform.position = m_camera.ViewportToWorldPoint(new Vector3(0, 0, 100.0f));
                     break;
                 case FpsCounterAnchorPositions.TopRight:
-                    //m_TextMeshPro.anchor = AnchorPositions.TopRight;
+                    //m_TextMeshPro.anchor = AnchorPositions.BottomRight;
                     m_textContainer.anchorPosition = TextContainerAnchors.TopRight;
                     m_frameCounter_transform.position = m_camera.ViewportToWorldPoint(new Vector3(1, 1, 100.0f));
                     break;

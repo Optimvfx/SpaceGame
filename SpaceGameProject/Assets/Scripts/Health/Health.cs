@@ -1,14 +1,26 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private UFloat _dieDellay;
+
+    [SerializeField] private UnityEvent OnDieEvent;
+
     private int _value;
 
     public int Value => _value;
 
-    public UnityAction OnDie;
-    public UnityEvent OnDieEvent;
+    private bool _dead;
+
+    public event Action OnDie;
+    public event Action Dieing;
+
+    private void OnDestroy()
+    {
+        OnDie?.Invoke();
+    }
 
     public void Init(uint health)
     {
@@ -28,10 +40,14 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        OnDie?.Invoke();
+        if (_dead)
+            return;
 
+        _dead = true;
+
+        Dieing?.Invoke();
         OnDieEvent?.Invoke();
 
-        Destroy(gameObject);
+        Destroy(gameObject, _dieDellay);
     }
 }

@@ -19,13 +19,13 @@ public class PlayerAudio : MonoBehaviour
     private void OnEnable()
     {
         _shoter.OnShot += PlayShotSound;
-        _player.TakeDamage += PlayTakeDamageSound;
+        _player.TakingDamage += PlayTakeDamageSound;
     }
 
     private void OnDisable()
     {
         _shoter.OnShot -= PlayShotSound;
-        _player.TakeDamage -= PlayTakeDamageSound;
+        _player.TakingDamage -= PlayTakeDamageSound;
     }
 
     private void PlayShotSound()

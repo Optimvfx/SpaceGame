@@ -1,29 +1,35 @@
 using UnityEngine;
 using UnityEngine.UI;
+using IJunior.TypedScenes;
 
 public class MainMenu : Menu
 {
-    [SerializeField] private MenuManager _menuManger;
-
     [SerializeField] private Button _exitButton;
-    [SerializeField] private Button _closeButton;
+    [SerializeField] private Button _playButton;
+
+    private bool _goToGame = false;
 
     private void OnEnable()
     {
         _exitButton.onClick.AddListener(Exit);
-        _closeButton.onClick.AddListener(Close);
+        _playButton.onClick.AddListener(StartGame);
     }
 
     private void OnDisable()
     {
         _exitButton.onClick.RemoveListener(Exit);
-        _closeButton.onClick.RemoveListener(Close);
+        _playButton.onClick.RemoveListener(StartGame);
     }
 
 
-    private void Close()
+    private async void StartGame()
     {
-        _menuManger.CloseMenu(this);    
+        if (_goToGame)
+            return;
+
+        _goToGame = true;
+
+        GameScene.Load(new GameSceneArguments(await SpaceGameApiFactory.StandartSpaceGameApi.GetMoney(), await SpaceGameApiFactory.StandartSpaceGameApi.GetTop()));
     }
 
     private void Exit()

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3488197295027951024}
   - component: {fileID: 9131842322380231328}
   - component: {fileID: 148901385277966903}
+  - component: {fileID: -7812480997178885798}
   m_Layer: 0
   m_Name: Snow
   m_TagString: Untagged
@@ -4816,3 +4817,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-7812480997178885798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8373951603777888399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0ba360e05bbbe4f869c95e3c056afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

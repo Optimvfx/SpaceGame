@@ -23,7 +23,13 @@ public class SpawnByTime<SpawnableType, Arguments> : MonoBehaviour
 
         while(true)
         {
-            _spawner.Spawn();
+            try
+            {
+                _spawner.Spawn();
+            }
+            catch
+            { 
+            }
 
             yield return new WaitForSeconds(secondsBreakBetweenSpawning);
         }

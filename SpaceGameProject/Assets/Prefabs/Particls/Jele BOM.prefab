@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6524990029325110312}
   - component: {fileID: 273356837562568854}
   - component: {fileID: -7261516836621682908}
+  - component: {fileID: 6438743454324838098}
   m_Layer: 0
   m_Name: Jele BOM
   m_TagString: Untagged
@@ -4826,9 +4827,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ccfa5577ed24d8c4fabc1c2981c9f3b1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 09c1ee164dd07214db61c269f0fefcb7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4941,3 +4942,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeBefforDie:
     _value: 5
+--- !u!114 &6438743454324838098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4158089948781050690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0ba360e05bbbe4f869c95e3c056afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

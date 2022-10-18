@@ -2,9 +2,9 @@
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Health))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamagable
 {
-    [Range(0, 1000)]
+    [Range(0, 100000)]
     [SerializeField] private uint _maximalHealth;
 
     private Health _health;
@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public float NoramlizdeHealth => (float)_health.Value / _maximalHealth;
 
     public event UnityAction<int, int> HealthChanged;
-    public event UnityAction TakeDamage;
+    public event UnityAction TakingDamage;
     public event UnityAction OnDie;
 
     private void Awake()
@@ -31,13 +31,13 @@ public class Player : MonoBehaviour
         _health.OnDie -= Die;
     }
 
-    public void ApplyDamage(uint damage)
+    public void TakeDamage(uint damage)
     {
         _health.TakeDamage(damage);
 
         HealthChanged?.Invoke(_health.Value, (int)_maximalHealth);
 
-        TakeDamage?.Invoke();
+        TakingDamage?.Invoke();
     }
 
     public void Die()

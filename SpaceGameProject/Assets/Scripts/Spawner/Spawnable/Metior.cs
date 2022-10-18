@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Health))]
-public class Metior : Spawnable
+public class Metior : Spawnable, IDamagable
 {
     [SerializeField] private uint _damage;
     [SerializeField] private uint _maximalHealth;
@@ -20,13 +20,13 @@ public class Metior : Spawnable
     {
         if (collision.gameObject.TryGetComponent(out Player player))
         {
-            player.ApplyDamage(_damage);
+            player.TakeDamage(_damage);
             _health.Die();
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(uint damage)
     {
-        _health.TakeDamage((uint)damage);
+        _health.TakeDamage(damage);
     }
 }

@@ -3,17 +3,15 @@ using UnityEngine;
 [RequireComponent(typeof(StandartSpawner))]
 public class StandartSpawnByTime : SpawnByTime<Metior, StandartSpawner.StandartSpawnerArguments>
 {
-    [SerializeField] private float _timeBetweenSpawn;
+    [SerializeField] private UFloat _dellay;
 
-    private void OnValidate()
+    public void StartSpawn(UFloat? timeBetweenSpawn = null)
     {
-        _timeBetweenSpawn = Mathf.Max(_timeBetweenSpawn, 0);
-    }
+        if (timeBetweenSpawn != null)
+            _dellay = timeBetweenSpawn.Value;
 
-    public void Start()
-    {
         Init(GetComponent<StandartSpawner>());
 
-        StartCoroutine(StartSpawning(_timeBetweenSpawn));
+        StartCoroutine(StartSpawning(_dellay));
     }
 }
