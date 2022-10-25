@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 8980523744140771300}
   - component: {fileID: -255059306628947909}
   - component: {fileID: -4758263609398260113}
+  - component: {fileID: -7624054954133349165}
+  - component: {fileID: -1951624233382135650}
   m_Layer: 0
   m_Name: Meteor (9)
   m_TagString: Untagged
@@ -35,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 6539180944853238103}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -85,7 +87,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6, y: 0.6}
+  m_Size: {x: 5.13, y: 4.65}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -168,9 +170,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -7624054954133349165}
+        m_TargetAssemblyTypeName: "DoWithChan\u0441e, Assembly-CSharp"
+        m_MethodName: TryDo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8505549292764773103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,3 +239,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0ba360e05bbbe4f869c95e3c056afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7624054954133349165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539180944853238103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a984e5439369461498c60fa87805bcd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _do:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1951624233382135650}
+        m_TargetAssemblyTypeName: BuffSpawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  "_chan\u0441e": 15
+--- !u!114 &-1951624233382135650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539180944853238103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e29b2aefb827f46a476b37d666f2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chanses:
+  - _chanse: 50
+    _buffer: {fileID: 6302905379413783383, guid: 6affce0cba2fb5e4d8f72d1872a01331, type: 3}
+  - _chanse: 25
+    _buffer: {fileID: 7398494051565407026, guid: b4a9cb0367549fb40bf057fa5962db18, type: 3}
+  - _chanse: 12.5
+    _buffer: {fileID: 2379145149655987636, guid: 0bde85e644ec23a42ac51fa6c30d0123, type: 3}
+  - _chanse: 6.25
+    _buffer: {fileID: 4510760665268898284, guid: 499f33f986d522e418e79df8bc495de0, type: 3}
+  - _chanse: 6.25
+    _buffer: {fileID: 659352095925928242, guid: 48e252868e5b6a242bfe1213ebe6b181, type: 3}
+  - _chanse: 50
+    _buffer: {fileID: 3417990400921231576, guid: fc1d07dfcd0735545a9b5b26ba93e505, type: 3}
+  - _chanse: 25
+    _buffer: {fileID: 5777114076457048480, guid: c655043bfcdb16e4cb8bbb449e5a83d3, type: 3}
+  - _chanse: 12.5
+    _buffer: {fileID: 6231887424080902987, guid: 0e6389c00df34824f8a31ee17ad19b1f, type: 3}
+  - _chanse: 6.25
+    _buffer: {fileID: 7630550848430930806, guid: 09dd57d1cd4c3c349a832679af58a600, type: 3}
+  - _chanse: 6.25
+    _buffer: {fileID: 3540795906220072756, guid: f4db3d8dd4f74e441a8326e854518720, type: 3}

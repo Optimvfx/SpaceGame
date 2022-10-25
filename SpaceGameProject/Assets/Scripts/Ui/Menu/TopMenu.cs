@@ -7,8 +7,10 @@ using UnityEngine;
 public class TopMenu : MonoBehaviour
 {
     [Header("Top")]
+    [SerializeField] private uint _topLength;
     [SerializeField] private PlayerTop _playerTop;
     [SerializeField] private PlayerInfoVisualization _playerInfoVisualization;
+    [SerializeField] private PlayerInfoVisualization _emptyPlayerInfoVisualization;
     [SerializeField] private Transform _container;
 
     private List<PlayerInfoVisualization> _visualizations = new List<PlayerInfoVisualization>();
@@ -38,6 +40,18 @@ public class TopMenu : MonoBehaviour
             _visualizations.Add(newVisualizetion);
 
             topIndex++;
+        }
+
+        for(int i = (int)topIndex - 1; i < _topLength ; i++)
+        {
+            var newVisualizetion = Instantiate(_emptyPlayerInfoVisualization, _container);
+
+            _visualizations.Add(newVisualizetion);
+        }
+
+        for(int i = 0; i < _visualizations.Count; i++)
+        {
+            _visualizations[i].transform.SetSiblingIndex(_visualizations.Count - i - 1);
         }
     }
 

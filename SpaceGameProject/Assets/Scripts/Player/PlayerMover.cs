@@ -6,47 +6,27 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private UFloat _moveSpeedBySecond;
     [SerializeField] private UFloat _moveBoundsX;
 
-    [Header("Rotation")]
-    [SerializeField] private Angle _angleToMoveDirectionCoefficient = 60;
-
-    [Header("RecalculateMoveDirection Direction")]
-    [SerializeField] private AnimationCurve _moveDirectionChangeSpeed;
-    [SerializeField] private UFloat _moveDirectionChangeModiffier;
-
     [SerializeField] private OneFloat _targetMoveDirectionX;
-
-    [SerializeField] private OneFloat _currentMoveDirectionX;
 
     private void Update()
     {
-        ChangeCurrentMoveDirection(Time.deltaTime);
-        //RotateByMoveDirection();
         MoveToDirection(Time.deltaTime);
     }
 
     public void ChangeTargetMoveDirection(OneFloat newTargetMoveDirectionX)
     {
-        _targetMoveDirectionX = newTargetMoveDirectionX;
+        if (newTargetMoveDirectionX > 0)
+            _targetMoveDirectionX = 1;
+        else if (newTargetMoveDirectionX < 0)
+            _targetMoveDirectionX = -1;
+        else
+            _targetMoveDirectionX = 0;  
     }
 
-    private void ChangeCurrentMoveDirection(float passedTime)
-    {
-        if (Mathf.Approximately(_targetMoveDirectionX, 0) || Mathf.Approximately(_targetMoveDirectionX, _currentMoveDirectionX))
-            return;
-
-        var range = Mathf.Abs(_targetMoveDirectionX - passedTime);
-
-        _currentMoveDirectionX = Mathf.MoveTowards(_currentMoveDirectionX, _targetMoveDirectionX, _moveDirectionChangeSpeed.Evaluate(range) * passedTime * _moveDirectionChangeModiffier);
-    }
-
-    private void RotateByMoveDirection()
-    {
-        transform.rotation = Quaternion.Euler(0, 0, -_angleToMoveDirectionCoefficient * _currentMoveDirectionX);
-    }
 
     private void MoveToDirection(float passedTime)
     {
-        var moveX = _currentMoveDirectionX * passedTime * _moveSpeedBySecond;
+        var moveX = _targetMoveDirectionX * passedTime * _moveSpeedBySecond;
         var nextXPoistion = transform.position.x + moveX;
         var clampedNextXPosition = Mathf.Clamp(nextXPoistion, -_moveBoundsX, _moveBoundsX);
 

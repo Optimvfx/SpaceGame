@@ -13,4 +13,12 @@ public class WinPastDie : WinCondition
     {
         _spectable.OnDie -= Win;
     }
+
+    public void Init(Health health)
+    {
+        if (health == null)
+            throw new System.NullReferenceException();
+
+        _spectable = health;
+    }
 }

@@ -117,10 +117,10 @@ public class MoveState : State
     [System.Serializable]
     public class MoveRect
     {
-        [SerializeField] private Transform _topLeft;
-        [SerializeField] private Transform _bottomRight;
+        [SerializeField] private Vector2 _topLeft;
+        [SerializeField] private Vector2 _bottomRight;
 
-        public Vector2 TopLeft => _topLeft.position;
-        public Vector2 BottomRight => _bottomRight.position;
+        public Vector2 TopLeft => _topLeft;
+        public Vector2 BottomRight => _bottomRight;
     }
 }

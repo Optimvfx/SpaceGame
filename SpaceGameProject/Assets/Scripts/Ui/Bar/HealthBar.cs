@@ -2,17 +2,40 @@
 
 public class HealthBar : Bar
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private Health _health;
 
     private void OnEnable()
     {
-        _player.HealthChanged += OnValueChanged;
-
-        Slider.value = 1;
+        Subscribe(_health);
     }
 
     private void OnDisable()
     {
-        _player.HealthChanged -= OnValueChanged;
+        UnSubscribe(_health);
+    }
+
+    public void Init(Health health)
+    {
+        if (health == null)
+            throw new System.NullReferenceException();
+
+        if (_health != null)
+            UnSubscribe(_health);
+
+        _health = health;
+
+        Subscribe(health);
+    }
+
+    private void Subscribe(Health health)
+    {
+        _health.OnValueChanged += OnValueChanged;
+
+        Slider.value = 1;
+    }
+
+    private void UnSubscribe(Health health)
+    {
+        _health.OnValueChanged -= OnValueChanged;
     }
 }

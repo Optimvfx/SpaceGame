@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Bullet<Ignore> : Damager<Ignore>
+public class Bullet<Ignore> : ShootDamager<Ignore>
     where Ignore : IDamageIgnore, new()
 {
     [SerializeField] private UFloat _speed;

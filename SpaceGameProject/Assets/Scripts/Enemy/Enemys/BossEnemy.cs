@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class BossEnemy : Enemy<StandartEnemyInitArguments>
@@ -15,13 +16,13 @@ public class BossEnemy : Enemy<StandartEnemyInitArguments>
 
     public void ActivateTurrets()
     {
-        foreach (var turret in _turrets)
+        foreach (var turret in _turrets.Where(turret => turret != null))
             turret.enabled = true;
     }
 
     public void StopTurrets()
     {
-        foreach (var turret in _turrets)
+        foreach (var turret in _turrets.Where(turret => turret != null))
             turret.enabled = false;
     }
 

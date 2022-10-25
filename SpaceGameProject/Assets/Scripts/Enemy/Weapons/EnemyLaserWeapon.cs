@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyLaserWeapon : Weapon<EnemyBullet.EnemyBulletIgnore>
 {
     [SerializeField] private UFloat _rechargeTimeInSeconds;
-    [SerializeField] private ShotPoint _shootPoint;
+    [SerializeField] private ShootPoint _shootPoint;
     [SerializeField] private float _extraAngle;
     [SerializeField] private Transform _rotationExemple;
 

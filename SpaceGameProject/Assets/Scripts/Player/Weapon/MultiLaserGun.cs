@@ -1,38 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiLaserGun : Weapon<PlayerBullet.PlayerBulletIgnore>
+public class MultiLaserGun : DellayShootWeapon<PlayerBullet.PlayerBulletIgnore>
 {
-    [SerializeField] private UFloat _rechargeTimeInSeconds;
-    [SerializeField] private ShotPoint[] _shootPoints;
-
-    private Coroutine _rechargeCorutine;
-
-    private bool _canShot = true;
-
-    public override bool CanShoot()
-    {
-        if (_canShot)
-        {
-            if (_rechargeCorutine != null)
-                StopCoroutine(_rechargeCorutine);
-
-            _rechargeCorutine = StartCoroutine(ReCharge());
-
-            return true;
-        }
-
-        return false;
-    }
-
-    public System.Collections.IEnumerator ReCharge()
-    {
-        _canShot = false;
-
-        yield return new WaitForSeconds(_rechargeTimeInSeconds);
-
-        _canShot = true;
-    }
+    [SerializeField] private ShootPoint[] _shootPoints;
 
     public override IEnumerable<Bullet<PlayerBullet.PlayerBulletIgnore>> Shoot()
     {

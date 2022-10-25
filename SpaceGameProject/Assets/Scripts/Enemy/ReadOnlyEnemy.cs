@@ -13,16 +13,15 @@ public class ReadOnlyEnemy : MonoBehaviour, IDamagable
 
     private Health _health;
 
-    private void OnEnable()
+    public Health Health
     {
-        if (_health == null)
-            CreateHealth();
-    }
+        get
+        {
+            if (_health == null)
+                CreateHealth();
 
-    private void OnDisable()
-    {
-         if (_health == null)
-            CreateHealth();
+            return _health;
+        }
     }
 
     public void TakeDamage(uint damage)
@@ -30,7 +29,7 @@ public class ReadOnlyEnemy : MonoBehaviour, IDamagable
         if (damage < 0)
             throw new ArgumentException();
 
-        _health.TakeDamage(damage);
+        Health.TakeDamage(damage);
     }
 
     private void CreateHealth()

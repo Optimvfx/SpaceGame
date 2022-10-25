@@ -458,6 +458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -504,37 +506,7 @@ MonoBehaviour:
     _value: 5
   _moveBoundsX:
     _value: 2.5
-  _angleToMoveDirectionCoefficient:
-    _value: 60
-  _moveDirectionChangeSpeed:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1.5289001
-      value: 1.5391998
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _moveDirectionChangeModiffier:
-    _value: 6
   _targetMoveDirectionX:
-    _value: 0
-  _currentMoveDirectionX:
     _value: 0
 --- !u!114 &5661791293237325060
 MonoBehaviour:
@@ -548,8 +520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cace9cd3933781945877bcfeb66117f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextWeaponButton: {fileID: 0}
-  _prewiusWeaponButton: {fileID: 0}
 --- !u!198 &6382755672765496931
 ParticleSystem:
   m_ObjectHideFlags: 0

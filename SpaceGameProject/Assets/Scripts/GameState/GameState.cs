@@ -20,6 +20,14 @@ public class GameState : MonoBehaviour
         UnSubscribe();
     }
 
+    public void Init(WinCondition winCondition)
+    {
+        if (winCondition == null)
+            throw new System.NullReferenceException();
+
+        _winCondition = winCondition;
+    }
+
     private void Win()
     {
         UnSubscribe();

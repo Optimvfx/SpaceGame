@@ -6,9 +6,12 @@ public class GameSceneArguments
 
     public TopMenu.PlayerTop PlayerTop { get; private set; }
 
-    public GameSceneArguments(uint hardnesLevel, TopMenu.PlayerTop playerTop)
+    public bool DeviceIsMobile { get; private set; }
+
+    public GameSceneArguments(uint hardnesLevel, TopMenu.PlayerTop playerTop, bool deviceIsMobile)
     {
         HardnesLevel = hardnesLevel;
         PlayerTop = playerTop;
+        DeviceIsMobile = deviceIsMobile;
     }
 }

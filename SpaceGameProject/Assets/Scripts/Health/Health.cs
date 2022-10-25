@@ -10,21 +10,25 @@ public class Health : MonoBehaviour
 
     private int _value;
 
+    private int _maxValue;
+
     public int Value => _value;
 
     private bool _dead;
 
     public event Action OnDie;
     public event Action Dieing;
+    public event Action<int, int> OnValueChanged;
 
     private void OnDestroy()
     {
         OnDie?.Invoke();
     }
 
-    public void Init(uint health)
+    public void Init(uint maxHealth)
     {
-        _value = (int)health;
+        _maxValue = (int)maxHealth;
+        _value = (int)maxHealth;
     }
 
     public void TakeDamage(uint damage)
@@ -33,6 +37,8 @@ public class Health : MonoBehaviour
             throw new System.ArgumentException();
 
         _value -= (int)damage;
+
+        OnValueChanged?.Invoke(_value, _maxValue);
 
         if (_value <= 0)
             Die();

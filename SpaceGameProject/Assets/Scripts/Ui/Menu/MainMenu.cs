@@ -29,7 +29,7 @@ public class MainMenu : Menu
 
         _goToGame = true;
 
-        GameScene.Load(new GameSceneArguments(await SpaceGameApiFactory.StandartSpaceGameApi.GetMoney(), await SpaceGameApiFactory.StandartSpaceGameApi.GetTop()));
+        GameScene.Load(new GameSceneArguments(await SpaceGameApiFactory.StandartSpaceGameApi.GetMoney(), await SpaceGameApiFactory.StandartSpaceGameApi.GetTop(), Application.isMobilePlatform));
     }
 
     private void Exit()
