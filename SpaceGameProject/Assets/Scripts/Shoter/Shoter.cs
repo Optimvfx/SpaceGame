@@ -15,12 +15,12 @@ public abstract class Shoter<Ignore> : MonoBehaviour
         if (TimeExtenstions.IsTimeStoped())
             return;
 
-        if (GetCurrentWeapon().CanShoot() == false)
+        var currentWeapon = GetCurrentWeapon();
+
+        if (currentWeapon.TryShoot(out IEnumerable<Bullet<Ignore>> newBullets) == false)
             return;
 
         OnShot?.Invoke();
-
-        var newBullets = GetCurrentWeapon().Shoot();
 
         foreach (var newBullet in newBullets)
         {

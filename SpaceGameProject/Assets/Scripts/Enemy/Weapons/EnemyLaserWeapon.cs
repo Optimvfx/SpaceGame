@@ -37,7 +37,7 @@ public class EnemyLaserWeapon : Weapon<EnemyBullet.EnemyBulletIgnore>
         return false;
     }
 
-    public override IEnumerable<Bullet<EnemyBullet.EnemyBulletIgnore>> Shoot()
+    protected override IEnumerable<Bullet<EnemyBullet.EnemyBulletIgnore>> Shoot()
     {
         var bullet = Instantiate(Bullet, _shootPoint.transform.position, Quaternion.identity);
 

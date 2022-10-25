@@ -40,7 +40,7 @@ public class P32ShootGun : Weapon<PlayerBullet.PlayerBulletIgnore>
         return false;
     }
 
-    public override IEnumerable<Bullet<PlayerBullet.PlayerBulletIgnore>> Shoot()
+    protected override IEnumerable<Bullet<PlayerBullet.PlayerBulletIgnore>> Shoot()
     {
         return new[] { Instantiate(Bullet, _shootPoint.transform.position, Quaternion.identity)}; 
     }

@@ -3,7 +3,7 @@ using WebPrefasSpace;
 
 public static class SpaceGameApiFactory
 {
-    private const string _apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE2NjU5OTY5ODUsImV4cCI6MTY2NjYwMTc4NSwiaXNzIjoibG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.IjP46BGXK1FOtEC4m_9Kzt8rSD51bgIKpicp9sydWsU";
+    private const string _apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0Iiwicm9sZSI6IlVzZXIiLCJuYmYiOjE2NjY3MjY3MzMsImV4cCI6MTY2NzMzMTUzMywiaXNzIjoibG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.XSjAvNYSxd1bVNLm6CnD03MceI0K3HsfEDbnMl8Hlgg";
 
     private const string _apiKeyTokenKey = "token";
 

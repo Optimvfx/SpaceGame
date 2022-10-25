@@ -7,7 +7,7 @@ public class RaylGun : DellayShootWeapon<PlayerBullet.PlayerBulletIgnore>
     [SerializeField] private UFloat _shootAngle;
     [SerializeField] private uint _shootCount;
 
-    public override IEnumerable<Bullet<PlayerBullet.PlayerBulletIgnore>> Shoot()
+    protected override IEnumerable<Bullet<PlayerBullet.PlayerBulletIgnore>> Shoot()
     {
         var bullets = new List<Bullet<PlayerBullet.PlayerBulletIgnore>>();
 

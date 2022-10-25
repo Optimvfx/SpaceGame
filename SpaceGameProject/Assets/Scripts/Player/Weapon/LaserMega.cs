@@ -18,7 +18,7 @@ public class LaserMega : Weapon<PlayerBullet.PlayerBulletIgnore>
         return true;
     }
 
-    public override IEnumerable<Bullet<PlayerBullet.PlayerBulletIgnore>> Shoot()
+    protected override IEnumerable<Bullet<PlayerBullet.PlayerBulletIgnore>> Shoot()
     {
         if (_laser != null)
             Destroy(_laser.gameObject);

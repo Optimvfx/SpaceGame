@@ -5,7 +5,7 @@ public class MultiLaserGun : DellayShootWeapon<PlayerBullet.PlayerBulletIgnore>
 {
     [SerializeField] private ShootPoint[] _shootPoints;
 
-    public override IEnumerable<Bullet<PlayerBullet.PlayerBulletIgnore>> Shoot()
+    protected override IEnumerable<Bullet<PlayerBullet.PlayerBulletIgnore>> Shoot()
     {
         var bullets = new List<Bullet<PlayerBullet.PlayerBulletIgnore>>();
 

@@ -12,7 +12,21 @@ public abstract class Weapon <Ignore> : MonoBehaviour
     
     protected Bullet<Ignore> Bullet => _bullet;
 
+    public bool TryShoot(out IEnumerable<Bullet<Ignore>> shootedBullets)
+    {
+        shootedBullets = new Bullet<Ignore>[0];
+
+        if(CanShoot())
+        {
+            shootedBullets = Shoot();
+
+            return true;
+        }
+
+        return false;   
+    }
+
     public abstract bool CanShoot();
 
-    public abstract IEnumerable<Bullet<Ignore>> Shoot();
+    protected abstract IEnumerable<Bullet<Ignore>> Shoot();
 }

@@ -6,7 +6,7 @@ public class LaserGun<Ignore> : DellayShootWeapon<Ignore>
 {
     [SerializeField] private ShootPoint _shootPoint;
 
-    public override IEnumerable<Bullet<Ignore>> Shoot()
+    protected override IEnumerable<Bullet<Ignore>> Shoot()
     {
         var bullet = Instantiate(Bullet, _shootPoint.transform.position, Quaternion.identity);
 

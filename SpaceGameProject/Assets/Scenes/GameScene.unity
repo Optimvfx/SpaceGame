@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &20428438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9024162029140974311, guid: d7cd283bef9121f47b7fdda7221fa5c4, type: 3}
+  m_PrefabInstance: {fileID: 998953359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &49513484
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,17 +677,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4eb56f753fa3334ca72079e4f81bfb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &261052939 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8429384985314168491, guid: 78601a28f5a95174690b820b2d405fb0, type: 3}
-  m_PrefabInstance: {fileID: 8429384985154606240}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &313851508
@@ -2897,6 +2897,10 @@ PrefabInstance:
       propertyPath: _speed._value
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5542318035696362472, guid: d7cd283bef9121f47b7fdda7221fa5c4, type: 3}
+      propertyPath: _activateTurrets
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6160628250653929931, guid: d7cd283bef9121f47b7fdda7221fa5c4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2907,7 +2911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6160628250653929931, guid: d7cd283bef9121f47b7fdda7221fa5c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.22
+      value: 11.26
       objectReference: {fileID: 0}
     - target: {fileID: 6160628250653929931, guid: d7cd283bef9121f47b7fdda7221fa5c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4634,7 +4638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28083cd35089be84483086924d848154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawanble: {fileID: 1433983824}
+  _spawanble: {fileID: 375192869}
   _spawner: {fileID: 1627113902}
   _waitTimeInSecond:
     _value: 60
@@ -4677,7 +4681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8c8214051d9b844b5da2ef255aa012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spectable: {fileID: 261052939}
+  _spectable: {fileID: 20428438}
 --- !u!1 &1625394673
 GameObject:
   m_ObjectHideFlags: 0
