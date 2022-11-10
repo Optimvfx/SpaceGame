@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Brackeys/2D Mega Pack/Demo_Scene.unity
     guid: 003b2d4f05a1afc4e9ef156d0192c46a
   - enabled: 0
-    path: Assets/Packeges Imported/unity-typed-scenes-master/unity-typed-scenes-master/Assets/Plugins/TypedScenes/Samples/SampleScene.unity
+    path: Assets/Sprites/unity-typed-scenes-master/unity-typed-scenes-master/Assets/Plugins/TypedScenes/Samples/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
     path: Assets/TextMesh Pro/Examples & Extras/Scenes/_26___Dropdown_Placeholder_Example.unity
@@ -83,4 +83,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Particls/Scenes/_10_Fire.unity
     guid: a5961e5580120f64385046fb8ed685c7
+  - enabled: 0
+    path: Assets/Sprites/2D Space Kit/Ships and Stations/Exemple.unity
+    guid: cdd068a96e956d84fbdf5bdd15f357f9
   m_configObjects: {}

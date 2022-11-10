@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public abstract class SpawnerNextSpawnableSellector<SpawnableType, Arguments> : MonoBehaviour
-    where SpawnableType : Spawnable
+public abstract class SpawnerNextSpawnableSellector<Arguments> : MonoBehaviour
     where Arguments : ISpawnArguments
 { 
-    public abstract SpawnableType GetNextSpawnablePrefab(Arguments spawnArguments);
+    public abstract GameObject GetNextSpawnable(Arguments spawnArguments, Vector3 po);
 }

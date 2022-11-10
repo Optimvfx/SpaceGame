@@ -14,7 +14,7 @@ namespace WebPrefasSpace
 #if UNITY_WEBGL
         RemoveFromLocalStorage(key: key);
 #else
-          
+            throw new InvalidProgramException();
 #endif
         }
 
@@ -41,7 +41,7 @@ namespace WebPrefasSpace
 #if UNITY_WEBGL
         return LoadFromLocalStorage(key: key);
 #else
-            return (UnityEngine.PlayerPrefs.GetString(key: key));
+            throw new InvalidProgramException();
 #endif
         }
 
@@ -50,7 +50,7 @@ namespace WebPrefasSpace
 #if UNITY_WEBGL
         SaveToLocalStorage(key: key, value: value);
 #else
-            UnityEngine.PlayerPrefs.SetString(key: key, value: value);
+            throw new InvalidProgramException();
 #endif
 
         }

@@ -1,13 +1,16 @@
+using IJunior.TypedScenes;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using IJunior.TypedScenes;
 
 public class MainMenu : Menu
 {
     [SerializeField] private Button _exitButton;
     [SerializeField] private Button _playButton;
+    [SerializeField] private bool _canEnterNotLoadedGame;
 
-    private bool _goToGame = false;
+    private bool _goingToGame = false;
 
     private void OnEnable()
     {
@@ -24,12 +27,24 @@ public class MainMenu : Menu
 
     private async void StartGame()
     {
-        if (_goToGame)
+        if (_goingToGame)
             return;
 
-        _goToGame = true;
+        Time.timeScale = 1;
 
-        GameScene.Load(new GameSceneArguments(await SpaceGameApiFactory.StandartSpaceGameApi.GetMoney(), await SpaceGameApiFactory.StandartSpaceGameApi.GetTop(), Application.isMobilePlatform));
+        try
+        {
+            GameScene.Load(new GameSceneArguments(await SpaceGameApiFactory.StandartSpaceGameApi.GetMoney(), await SpaceGameApiFactory.StandartSpaceGameApi.GetTop(), Application.isMobilePlatform));
+            _goingToGame = true;
+        }
+        catch
+        {
+            if (_canEnterNotLoadedGame)
+            {
+                GameScene.Load(new GameSceneArguments(SpaceGameApiFactory.StandartSpaceGameApi.VirtualScore, new TopMenu.PlayerTop(new List<TopMenu.PlayerInfo>()), Application.isMobilePlatform));
+                _goingToGame = true;
+            }
+        }
     }
 
     private void Exit()

@@ -6,6 +6,6 @@ public class BuffNewWeapon : Buffer
 
     public override void Buff(Player player)
     {
-        player.Inventory.SellectWeapon(_weapon);
+        player.Inventory.TrySellectWeapon(_weapon);
     }
 }

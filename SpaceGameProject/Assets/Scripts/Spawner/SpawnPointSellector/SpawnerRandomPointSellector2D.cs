@@ -4,7 +4,8 @@ using System;
 using System.Linq;
 using Extensions;
 
-public class SpawnerRandomPointSellector2D : SpawnerSpawnPositionSellector<StandartSpawner.StandartSpawnerArguments>
+public class SpawnerRandomPointSellector2D<Arguments> : SpawnerSpawnPositionSellector<Arguments>
+    where Arguments : ISpawnArguments
 {
     [SerializeField] private List<SpawnPoint> _spawnPoints;
 
@@ -13,7 +14,7 @@ public class SpawnerRandomPointSellector2D : SpawnerSpawnPositionSellector<Stand
         _spawnPoints = transform.GetComponentsInChildren<SpawnPoint>().ToList();
     }
 
-    public override Vector3 GetNextSpawnPosition(StandartSpawner.StandartSpawnerArguments spawnArguments)
+    public override Vector3 GetNextSpawnPosition(Arguments spawnArguments)
     {
         if (_spawnPoints.Count == 0)
             throw new NullReferenceException();

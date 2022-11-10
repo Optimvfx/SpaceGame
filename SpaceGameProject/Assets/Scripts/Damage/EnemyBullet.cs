@@ -6,7 +6,7 @@ public class EnemyBullet : Bullet<EnemyBullet.EnemyBulletIgnore>
     {
         public bool Ignore(GameObject collision)
         {
-            if (collision.TryGetComponent(out Player player) || collision.TryGetComponent(out Metior metior))
+            if (collision.TryGetComponent(out Player player) || collision.TryGetComponent(out Meteor metior))
                 return false;
 
             return true;

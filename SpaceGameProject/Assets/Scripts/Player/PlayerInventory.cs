@@ -20,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void Awake()
     {
-        SellectWeapon(_startWeapon);
+        TrySellectWeapon(_startWeapon);
     }
 
     public void AddMoney(uint money)
@@ -29,8 +29,11 @@ public class PlayerInventory : MonoBehaviour
         MoneyChanged?.Invoke((int)Money);
     }
 
-    public void SellectWeapon(Weapon<PlayerBullet.PlayerBulletIgnore> weapon)
+    public void TrySellectWeapon(Weapon<PlayerBullet.PlayerBulletIgnore> weapon)
     {
+        if (_currentWeapon != null && weapon.Lvl < _currentWeapon.Lvl)
+            return;
+
         if (_currentWeapon != null)
             Destroy(_currentWeapon.gameObject);
 

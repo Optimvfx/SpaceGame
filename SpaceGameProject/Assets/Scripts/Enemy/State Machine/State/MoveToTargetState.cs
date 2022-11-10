@@ -7,6 +7,7 @@ public class MoveToTargetState : EndableState
     [SerializeField] private Vector2 _endPoint;
     [SerializeField] private UFloat _speed;
     [SerializeField] private bool _ignoreXMove = false;
+    [SerializeField] private bool _ignoreYMove = false;
     [SerializeField] private bool _activateTurrets;
 
     private BossEnemy _self;
@@ -20,10 +21,15 @@ public class MoveToTargetState : EndableState
 
     private void OnEnable()
     {
+        var endPoint = _endPoint;
+
         if (_ignoreXMove)
-            _moveTween = transform.DOMove(new Vector2(transform.position.x, _endPoint.y), Mathf.Abs(_endPoint.y - transform.position.y) / _speed);
-        else
-            _moveTween = transform.DOMove(_endPoint, Vector2.Distance(_endPoint, transform.position) / _speed);
+            endPoint.x = transform.position.x;
+
+        if (_ignoreYMove)
+            endPoint.y = transform.position.y;
+
+        _moveTween = transform.DOMove(endPoint, Vector2.Distance(endPoint, transform.position) / _speed).SetEase(Ease.Linear);
 
         _moveTween.onKill += OnEnd;
     }
@@ -37,9 +43,9 @@ public class MoveToTargetState : EndableState
     private void OnEnd()
     {
         if (_activateTurrets)
-            _self.ActivateTurrets();
+            _self.ActivateWeapons();
 
-        EndStateAction();
+        EndState();
 
         _moveTween.onKill -= OnEnd;
     }

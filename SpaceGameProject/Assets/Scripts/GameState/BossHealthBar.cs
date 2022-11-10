@@ -5,7 +5,7 @@ public class BossHealthBar : MonoBehaviour
 {
     [SerializeField] private TMP_Text _lable;
     [SerializeField] private HealthBar[] _healthBars;
-    [SerializeField] private GoToEnemyPastTime _observable;
+    [SerializeField] private GoToBossPastTime _observable;
 
     private void OnEnable()
     {

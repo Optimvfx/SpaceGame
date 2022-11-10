@@ -2,13 +2,12 @@ using UnityEngine;
 using System;
 using System.Collections;
 
-public class SpawnByTime<SpawnableType, Arguments> : MonoBehaviour
-    where SpawnableType : Spawnable
+public class SpawnByTime<Arguments> : MonoBehaviour
     where Arguments : ISpawnArguments
 {
-    private Spawner<SpawnableType, Arguments> _spawner;
+    private Spawner<Arguments> _spawner;
 
-    public void Init(Spawner<SpawnableType, Arguments> spawner)
+    public void Init(Spawner<Arguments> spawner)
     {
         _spawner = spawner;
     }
@@ -25,7 +24,7 @@ public class SpawnByTime<SpawnableType, Arguments> : MonoBehaviour
         {
             try
             {
-                _spawner.Spawn();
+                _spawner.TrySpawn();
             }
             catch
             { 

@@ -18,6 +18,10 @@ public class StandartSpaceGameApi : ISpaceGameApi
 
     private readonly HttpClient _httpClient;
 
+    private uint _virtualScore = 0;
+
+    public uint VirtualScore => _virtualScore;
+
     public StandartSpaceGameApi()
     {
         _httpClient = new HttpClient();
@@ -32,7 +36,7 @@ public class StandartSpaceGameApi : ISpaceGameApi
     {
         var balanse = await GetAsk<Balance>(_getBalanceAsk);
 
-        return balanse.Total;
+        return balanse.Total + _virtualScore;
     }
 
     public async Task<TopMenu.PlayerTop> GetTop()
@@ -47,6 +51,14 @@ public class StandartSpaceGameApi : ISpaceGameApi
         PushAsk(_levelUpAsk);
     }
 
+    public void SetVirtualScore(uint score)
+    {
+        if (score < 0)
+            throw new System.ArgumentException();
+
+        _virtualScore = score;
+    }
+
     private async void PushAsk(string askTarget)
     {
         var result = await _httpClient.GetAsync(GetUrl(askTarget));
@@ -57,22 +69,22 @@ public class StandartSpaceGameApi : ISpaceGameApi
 
     private async Task<T> GetAsk<T>(string askTarget)
     {
-        try
-        {
-            var result = await _httpClient.GetAsync(GetUrl(askTarget));
+        var result = await _httpClient.GetAsync(GetUrl(askTarget));
 
-            if (result != null && result.IsSuccessStatusCode)
+        if (result != null && result.IsSuccessStatusCode)
+        {
+            try
             {
                 var jsonString = result.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<T>(jsonString.Result);
             }
+            catch
+            {
+                throw new HttpRequestException();
+            }
+        }
 
-            throw new HttpRequestException();
-        }
-        catch
-        {
-            throw new HttpRequestException();
-        }
+        throw new HttpRequestException(result.StatusCode.ToString());
     }
 
     private string GetUrl(string extraArguments)

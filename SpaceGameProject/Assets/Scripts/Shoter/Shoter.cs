@@ -6,25 +6,32 @@ using UnityEngine.Events;
 public abstract class Shoter<Ignore> : MonoBehaviour
     where Ignore : IDamageIgnore, new()
 {
-    [SerializeField] private Transform _bulletContainer;
+    [SerializeField] protected Transform BulletContainer;
 
     public event UnityAction OnShot;
 
     public void TryShoot()
     {
+        TryShoot(out IEnumerable<Bullet<Ignore>> bullets);
+    }
+
+    public void TryShoot(out IEnumerable<Bullet<Ignore>> bullets)
+    {
+        bullets = new Bullet<Ignore>[0];
+
         if (TimeExtenstions.IsTimeStoped())
             return;
 
         var currentWeapon = GetCurrentWeapon();
 
-        if (currentWeapon.TryShoot(out IEnumerable<Bullet<Ignore>> newBullets) == false)
+        if (currentWeapon.TryShoot(out bullets) == false)
             return;
 
         OnShot?.Invoke();
 
-        foreach (var newBullet in newBullets)
+        foreach (var newBullet in bullets)
         {
-            newBullet.transform.parent = _bulletContainer;
+            newBullet.transform.parent = BulletContainer;
         }
     }
 

@@ -227,6 +227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6668416280909509750, guid: 2704565f58de4034691b9b829f9f03e0, type: 3}
+  _zRotation: 0
+  _rotate: 0
 --- !u!114 &-6881197593083910589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,22 +295,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chanses:
-  - _chanse: 50
-    _buffer: {fileID: 6302905379413783383, guid: 6affce0cba2fb5e4d8f72d1872a01331, type: 3}
   - _chanse: 25
-    _buffer: {fileID: 7398494051565407026, guid: b4a9cb0367549fb40bf057fa5962db18, type: 3}
+    _buffer: {fileID: 6302905379413783383, guid: 6affce0cba2fb5e4d8f72d1872a01331, type: 3}
   - _chanse: 12.5
+    _buffer: {fileID: 7398494051565407026, guid: b4a9cb0367549fb40bf057fa5962db18, type: 3}
+  - _chanse: 6.25
     _buffer: {fileID: 2379145149655987636, guid: 0bde85e644ec23a42ac51fa6c30d0123, type: 3}
-  - _chanse: 6.25
+  - _chanse: 3.12
     _buffer: {fileID: 4510760665268898284, guid: 499f33f986d522e418e79df8bc495de0, type: 3}
-  - _chanse: 6.25
+  - _chanse: 3.12
     _buffer: {fileID: 659352095925928242, guid: 48e252868e5b6a242bfe1213ebe6b181, type: 3}
   - _chanse: 50
     _buffer: {fileID: 3417990400921231576, guid: fc1d07dfcd0735545a9b5b26ba93e505, type: 3}
   - _chanse: 25
     _buffer: {fileID: 5777114076457048480, guid: c655043bfcdb16e4cb8bbb449e5a83d3, type: 3}
   - _chanse: 12.5
-    _buffer: {fileID: 6231887424080902987, guid: 0e6389c00df34824f8a31ee17ad19b1f, type: 3}
+    _buffer: {fileID: 2873589138431604507, guid: 0e6389c00df34824f8a31ee17ad19b1f, type: 3}
   - _chanse: 6.25
     _buffer: {fileID: 7630550848430930806, guid: 09dd57d1cd4c3c349a832679af58a600, type: 3}
   - _chanse: 6.25

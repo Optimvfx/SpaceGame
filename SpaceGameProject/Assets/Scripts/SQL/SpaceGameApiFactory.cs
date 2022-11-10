@@ -3,7 +3,7 @@ using WebPrefasSpace;
 
 public static class SpaceGameApiFactory
 {
-    private const string _apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0Iiwicm9sZSI6IlVzZXIiLCJuYmYiOjE2NjY3MjY3MzMsImV4cCI6MTY2NzMzMTUzMywiaXNzIjoibG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.XSjAvNYSxd1bVNLm6CnD03MceI0K3HsfEDbnMl8Hlgg";
+    private const string _apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0Iiwicm9sZSI6IlVzZXIiLCJuYmYiOjE2NjY5NTMyNTcsImV4cCI6MTY2NzU1ODA1NywiaXNzIjoibG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.Ljsc9Bt3vNcsguxdQTwS5bhSMo9BrBk5YkQZAalNUwQ";
 
     private const string _apiKeyTokenKey = "token";
 
@@ -27,7 +27,7 @@ public static class SpaceGameApiFactory
     {
         if (WebPrefs.HasKey(_apiKeyTokenKey))
             return WebPrefs.GetString(_apiKeyTokenKey);
-        else
-            return _apiKey;
+
+        throw new System.NullReferenceException();
     }
 }

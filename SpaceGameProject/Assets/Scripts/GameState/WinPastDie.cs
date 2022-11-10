@@ -6,12 +6,14 @@ public class WinPastDie : WinCondition
 
     private void OnEnable()
     {
-        _spectable.OnDie += Win;
+        if(_spectable != null)
+            _spectable.OnDie += Win;
     }
 
     private void OnDisable()
     {
-        _spectable.OnDie -= Win;
+        if (_spectable != null)
+            _spectable.OnDie -= Win;
     }
 
     public void Init(Health health)
@@ -20,5 +22,7 @@ public class WinPastDie : WinCondition
             throw new System.NullReferenceException();
 
         _spectable = health;
+
+        _spectable.OnDie += Win;
     }
 }

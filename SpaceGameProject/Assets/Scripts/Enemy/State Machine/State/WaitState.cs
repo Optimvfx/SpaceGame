@@ -22,6 +22,6 @@ public class WaitState : EndableState
     {
         yield return new WaitForSeconds(_timeToWait);
 
-        EndStateAction();
+        EndState();
     }
 }

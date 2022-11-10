@@ -5,7 +5,7 @@ using System.Linq;
 
 public class GameSceneConfiger : MonoBehaviour, ISceneLoadHandler<GameSceneArguments>
 {
-    [SerializeField] private StandartSpawnByTime _meteorSpawnByTime;
+    [SerializeField] private MetorSpawnByTime _meteorSpawnByTime;
     [SerializeField] private TopMenu _topMenu;
     [SerializeField] private PlayerInventory _playerInventory;
     [SerializeField] private UFloat _meteorHardnesModiffier;
@@ -16,7 +16,7 @@ public class GameSceneConfiger : MonoBehaviour, ISceneLoadHandler<GameSceneArgum
     [SerializeField] private GameState _globalGameState;
     [SerializeField] private WinCondition _standartWinCondution;
     [SerializeField] private WinPastDie _bossWinCondution;
-    [SerializeField] private GoToEnemyPastTime _goToBossPastTime;
+    [SerializeField] private GoToBossPastTime _goToBossPastTime;
 
     [SerializeField] private List<BossSellectCondution> _bossSellectCondutions;
 
@@ -27,7 +27,7 @@ public class GameSceneConfiger : MonoBehaviour, ISceneLoadHandler<GameSceneArgum
 
     public void OnSceneLoaded(GameSceneArguments argument)
     {
-         _meteorSpawnByTime.StartSpawn(_meteorHardnesModiffier/(argument.HardnesLevel + 1));
+         _meteorSpawnByTime.StartSpawn(_meteorHardnesModiffier/Mathf.Log(argument.HardnesLevel + 1));
         _topMenu.Init(argument.PlayerTop);
         _playerInventory.AddMoney(argument.HardnesLevel);
 
@@ -53,12 +53,11 @@ public class GameSceneConfiger : MonoBehaviour, ISceneLoadHandler<GameSceneArgum
 
         int currentBossIndex = 0;
 
-        while(_bossSellectCondutions[currentBossIndex].ScoreToSellect > hardnes && currentBossIndex < _bossSellectCondutions.Count)
+        while(_bossSellectCondutions[currentBossIndex].ScoreToSellect > hardnes && currentBossIndex + 1 < _bossSellectCondutions.Count)
         {
             currentBossIndex++;
         }
 
-        _bossWinCondution.Init(_bossSellectCondutions[currentBossIndex].BossEnemy.Health);
         _globalGameState.Init(_bossWinCondution);
 
         _goToBossPastTime.Init(_bossSellectCondutions[currentBossIndex].BossEnemy);
@@ -72,10 +71,10 @@ public class GameSceneConfiger : MonoBehaviour, ISceneLoadHandler<GameSceneArgum
     [System.Serializable]
     private class BossSellectCondution
     {
-        [SerializeField] private ReadOnlyEnemy _bossEnemy;
+        [SerializeField] private BossEnemy _bossEnemy;
         [SerializeField] private uint _scoreToSellect;
 
-        public ReadOnlyEnemy BossEnemy => _bossEnemy;
+        public BossEnemy BossEnemy => _bossEnemy;
         public uint ScoreToSellect => _scoreToSellect;
     }
 }

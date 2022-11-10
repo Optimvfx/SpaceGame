@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     private int _maxValue;
 
     public int Value => _value;
+    public int MaxValue => _maxValue;
 
     private bool _dead;
 

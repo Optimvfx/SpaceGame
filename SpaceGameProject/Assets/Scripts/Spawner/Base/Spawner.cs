@@ -1,33 +1,38 @@
 using System;
 using UnityEngine;
 
-public abstract class Spawner<SpawnableType, Arguments> : MonoBehaviour
-    where SpawnableType : Spawnable
+public abstract class Spawner<Arguments> : MonoBehaviour
     where Arguments : ISpawnArguments
 {
     [SerializeField] private Transform _container;
 
-    private SpawnerNextSpawnableSellector<SpawnableType, Arguments> _nextSpawnableSellector;
+    private SpawnerNextSpawnableSellector<Arguments> _nextSpawnableSellector;
     private SpawnerSpawnPositionSellector<Arguments> _spawnerSpawnPositionSellector;
 
-    public void Init(SpawnerNextSpawnableSellector<SpawnableType, Arguments> nextSpawnableSellector, SpawnerSpawnPositionSellector<Arguments> spawnerSpawnPositionSellector)
+    public void Init(SpawnerNextSpawnableSellector<Arguments> nextSpawnableSellector, SpawnerSpawnPositionSellector<Arguments> spawnerSpawnPositionSellector, Transform container = null)
     {
+        if (container != null)
+            _container = container;
+
         _nextSpawnableSellector = nextSpawnableSellector;
         _spawnerSpawnPositionSellector = spawnerSpawnPositionSellector;
     }
 
-    public void Spawn()
+    public void TrySpawn()
     {
         if (_nextSpawnableSellector == null || _spawnerSpawnPositionSellector == null)
             throw new NullReferenceException();
 
         var nextArguments = GetNextSpawnArguments();
 
-        var prefab = _nextSpawnableSellector.GetNextSpawnablePrefab(nextArguments);
-
         var position = _spawnerSpawnPositionSellector.GetNextSpawnPosition(nextArguments);
 
-        Instantiate(prefab, position, Quaternion.identity, _container);
+        var spawnable = _nextSpawnableSellector.GetNextSpawnable(nextArguments, position);
+
+        spawnable.transform.position = position;
+
+        if (_container != null)
+            spawnable.transform.parent = _container;
     }
 
     protected abstract Arguments GetNextSpawnArguments();

@@ -5,7 +5,7 @@ public class EndableState : State
 {
     public event Action OnStateFinshed;
 
-    protected void EndStateAction()
+    protected void EndState()
     {
         OnStateFinshed?.Invoke();
     }

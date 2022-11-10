@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LookAt2d : MonoBehaviour
@@ -8,6 +9,11 @@ public class LookAt2d : MonoBehaviour
     [SerializeField] private float _addedAngle;
     [Range(0f, 100f)]
     [SerializeField] private float _modiffier;
+
+    internal void Init(Transform target)
+    {
+        _target = target;
+    }
 
     private void Update()
     {
