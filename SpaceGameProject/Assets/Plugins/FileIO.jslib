@@ -1,14 +1,17 @@
 mergeInto(LibraryManager.library, {
 
   SaveToLocalStorage : function(key, data) {
-    localStorage.setItem(key, data);
+    window.localStorage.setItem(key, data);
   },
 
   LoadFromLocalStorage : function(key) {
       try
       {
-      var returnStr = localStorage.getItem(key);
-      return returnStr;
+      var returnStr = window.localStorage.getItem(key);
+      var bufferSize = lengthBytesUTF8(returnStr) + 1;
+      var buffer = _malloc(bufferSize);
+      stringToUTF8(returnStr, buffer, bufferSize);
+      return buffer;
       }
       catch
       {
@@ -17,11 +20,11 @@ mergeInto(LibraryManager.library, {
   },
 
   RemoveFromLocalStorage : function(key) {
-    localStorage.removeItem(key);
+    window.localStorage.removeItem(key);
   },
 
   HasKeyInLocalStorage : function(key) {
-    if (localStorage.getItem(key)) {
+    if (window.localStorage.getItem(key)) {
       return 1;
     }
     else {
