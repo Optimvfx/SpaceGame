@@ -1,4 +1,4 @@
-var FileIO = {
+mergeInto(LibraryManager.library, {
 
   SaveToLocalStorage : function(key, data) {
     localStorage.setItem(key, data);
@@ -28,6 +28,4 @@ var FileIO = {
       return 0;
     }
   }
-};
-
-mergeInto(LibraryManager.library, FileIO);
+});
