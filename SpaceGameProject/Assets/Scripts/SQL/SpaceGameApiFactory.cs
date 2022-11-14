@@ -25,8 +25,7 @@ public static class SpaceGameApiFactory
 
     private static string GetApiKey()
     {
-        if (WebPrefs.HasKey(_apiKeyTokenKey))
-            return WebPrefs.GetString(_apiKeyTokenKey);
+        return WebPrefs.GetString(_apiKeyTokenKey);
 
         throw new System.NullReferenceException();
     }

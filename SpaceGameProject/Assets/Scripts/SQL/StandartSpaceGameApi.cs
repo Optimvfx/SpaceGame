@@ -29,7 +29,7 @@ public class StandartSpaceGameApi : ISpaceGameApi
 
     public void Authorise(string key)
     {
-        _httpClient.DefaultRequestHeaders.Add(_authorizationHeaderName, $"Bearer {key}");
+        _httpClient.DefaultRequestHeaders.Add(_authorizationHeaderName, key);
     }
 
     public async Task<uint> GetMoney()

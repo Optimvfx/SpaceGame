@@ -11,17 +11,12 @@ namespace WebPrefasSpace
 
         public static void DeleteKey(string key)
         {
-#if UNITY_WEBGL
         RemoveFromLocalStorage(key: key);
-#else
-            throw new InvalidProgramException();
-#endif
         }
 
         public static bool HasKey(string key)
         {
 
-#if UNITY_WEBGL
             try
             {
                 return (HasKeyInLocalStorage(key) == 1);
@@ -30,19 +25,11 @@ namespace WebPrefasSpace
             {
                 return false;
             }
-#else
-                       return false;
-#endif
         }
 
         public static string GetString(string key)
         {
-
-#if UNITY_WEBGL
-        return LoadFromLocalStorage(key: key);
-#else
-            throw new InvalidProgramException();
-#endif
+            return LoadFromLocalStorage(key: key);
         }
 
         public static void SetString(string key, string value)
