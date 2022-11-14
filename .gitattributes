@@ -3,3 +3,7 @@
 * text=auto
 *.jpg binary
 *.png binary
+*.meta binary
+*.dwlt binary
+*.json binary
+*.js binary
