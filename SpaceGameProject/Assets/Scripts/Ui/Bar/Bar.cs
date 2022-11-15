@@ -7,6 +7,10 @@ public abstract class Bar : MonoBehaviour
 
     public void OnValueChanged(int value, int maxValue)
     {
-        Slider.value = (float)value / maxValue;
+        if (value > maxValue)
+            throw new System.ArgumentException();
+
+        Slider.maxValue = maxValue;
+        Slider.value = value;
     }
 }

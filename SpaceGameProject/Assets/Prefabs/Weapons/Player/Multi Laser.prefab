@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: Multi
   _lvl: 1
-  _bullet: {fileID: 6355360573021863696, guid: c420cff9576438442b4f9354a7a81fd6, type: 3}
+  _bullet: {fileID: 1987114863896168935, guid: ef44544706701ee46920f78059f80e6d, type: 3}
   _rechargeTimeInSeconds:
     _value: 0.15
   _shootPoints:

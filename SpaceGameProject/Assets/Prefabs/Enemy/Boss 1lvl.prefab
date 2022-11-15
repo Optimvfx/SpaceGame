@@ -19787,10 +19787,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5001595856390305320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90a374509e32646bbae5e02f34a66f, type: 3}
+  m_Script: {fileID: 11500000, guid: 18bf7820393428a43a0ce06a822de201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 9084732568292822020, guid: 694f0cc599607ba499cf7eb2e998a648, type: 3}
+  _zRotation: 0
+  _rotate: 0
 --- !u!1 &7188709584971661807
 GameObject:
   m_ObjectHideFlags: 0

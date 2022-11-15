@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: P32
-  _bullet: {fileID: 6334287559242325693, guid: edaf0858077837e488c4b20d4fa4cce8, type: 3}
+  _lvl: 0
+  _bullet: {fileID: 394188595752425597, guid: e21e51df440ca8f45bfa4f0d07457e8c, type: 3}
   _rechargeTimeInSeconds:
     _value: 1.5
   _shotTimeInSeconds:

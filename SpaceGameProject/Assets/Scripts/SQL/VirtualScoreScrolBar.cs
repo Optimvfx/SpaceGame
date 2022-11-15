@@ -23,6 +23,6 @@ public class VirtualScoreScrolBar : MonoBehaviour
 
     private void ChangeVirtualScore(float value)
     {
-        SpaceGameApiFactory.StandartSpaceGameApi.SetVirtualScore((uint)(value));
+        SpaceGameApiSingleton.StandartSpaceGameApi.SetVirtualScore((uint)(value));
     }
 }

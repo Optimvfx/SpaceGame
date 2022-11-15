@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: P32
-  _bullet: {fileID: 6334287559242325693, guid: edaf0858077837e488c4b20d4fa4cce8, type: 3}
+  _lvl: 0
+  _bullet: {fileID: 394188595752425597, guid: e21e51df440ca8f45bfa4f0d07457e8c, type: 3}
   _rechargeTimeInSeconds:
     _value: 1.5
   _shotTimeInSeconds:
@@ -328,10 +329,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7778279608380186170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90a374509e32646bbae5e02f34a66f, type: 3}
+  m_Script: {fileID: 11500000, guid: 18bf7820393428a43a0ce06a822de201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 1820891082450572214, guid: f574da809dadc3648894a4fae0be105a, type: 3}
+  _zRotation: 0
+  _rotate: 0
 --- !u!114 &8742188218472281274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +344,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7778279608380186170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90a374509e32646bbae5e02f34a66f, type: 3}
+  m_Script: {fileID: 11500000, guid: 18bf7820393428a43a0ce06a822de201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6668416280909509750, guid: 2704565f58de4034691b9b829f9f03e0, type: 3}
+  _zRotation: 0
+  _rotate: 0

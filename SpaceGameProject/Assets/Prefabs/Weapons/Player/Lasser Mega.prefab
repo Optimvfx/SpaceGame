@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: Mega Laser
   _lvl: 4
-  _bullet: {fileID: 7456271165542139698, guid: 2808c5a93d2248d4aad5492ae7929c4a, type: 3}
+  _bullet: {fileID: 4295916127158896217, guid: 84581cdfcf3bc0f4aa3bb1cb333464c8, type: 3}
   _shootPoint: {fileID: 4884834197476369239}
 --- !u!1 &8395691466392011297
 GameObject:

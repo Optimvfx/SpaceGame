@@ -4931,6 +4931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -19523,6 +19525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -29306,6 +29310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -39089,6 +39095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -44049,6 +44057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -49016,6 +49026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -68424,6 +68436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -87839,6 +87853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -97622,6 +97638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -102589,6 +102607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -107549,6 +107569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227aa7dbe7ef5b44d843756f3e049985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dieDellay:
+    _value: 0
   OnDieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -126900,7 +126922,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0

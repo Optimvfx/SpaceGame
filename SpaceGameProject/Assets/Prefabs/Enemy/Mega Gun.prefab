@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Enemy Laser
-  _bullet: {fileID: 5260393214164639137, guid: c0aad7856bf3afc4892e9b6ae1e94d5a, type: 3}
+  _lvl: 0
+  _bullet: {fileID: 8806121354945754125, guid: a070985c022eee148b86f256873e2d65, type: 3}
   _rechargeTimeInSeconds:
     _value: 3
   _shootPoint: {fileID: 2088522500791770243}
@@ -263,10 +264,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4617896440546312909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90a374509e32646bbae5e02f34a66f, type: 3}
+  m_Script: {fileID: 11500000, guid: 18bf7820393428a43a0ce06a822de201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 1820891082450572214, guid: f574da809dadc3648894a4fae0be105a, type: 3}
+  _zRotation: 0
+  _rotate: 0
 --- !u!114 &6250155290946660300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,10 +279,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4617896440546312909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90a374509e32646bbae5e02f34a66f, type: 3}
+  m_Script: {fileID: 11500000, guid: 18bf7820393428a43a0ce06a822de201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6668416280909509750, guid: 2704565f58de4034691b9b829f9f03e0, type: 3}
+  _zRotation: 0
+  _rotate: 0
 --- !u!1 &6001139731345747459
 GameObject:
   m_ObjectHideFlags: 0

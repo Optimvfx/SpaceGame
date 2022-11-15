@@ -88,7 +88,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Laser
-  _bullet: {fileID: 2269183685693120014, guid: 87613ba6bd698854996d4d31dc441359, type: 3}
+  _lvl: 0
+  _bullet: {fileID: 3464266624242209878, guid: c9d3fdbfa925b6b46be238563032dea1, type: 3}
   _rechargeTimeInSeconds:
     _value: 0.15
   _shootPoint: {fileID: 2640709174376158156}

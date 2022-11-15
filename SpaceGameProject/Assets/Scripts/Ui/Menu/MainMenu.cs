@@ -34,14 +34,20 @@ public class MainMenu : Menu
 
         try
         {
-            GameScene.Load(new GameSceneArguments(await SpaceGameApiFactory.StandartSpaceGameApi.GetMoney(), await SpaceGameApiFactory.StandartSpaceGameApi.GetTop(), Application.isMobilePlatform));
+            var hardnes = await SpaceGameApiSingleton.StandartSpaceGameApi.GetMoney();
+            var top = await SpaceGameApiSingleton.StandartSpaceGameApi.GetTop();
+
+            GameScen.Load(new GameSceneArguments(hardnes, top, Application.isMobilePlatform));
             _goingToGame = true;
         }
         catch
         {
             if (_canEnterNotLoadedGame)
             {
-                GameScene.Load(new GameSceneArguments(SpaceGameApiFactory.StandartSpaceGameApi.VirtualScore, new TopMenu.PlayerTop(new List<TopMenu.PlayerInfo>()), Application.isMobilePlatform));
+                var hardnes = SpaceGameApiSingleton.StandartSpaceGameApi.VirtualScore;
+                var top = new TopMenu.PlayerTop(new List<TopMenu.PlayerInfo>());
+
+                GameScen.Load(new GameSceneArguments(hardnes, top, Application.isMobilePlatform));
                 _goingToGame = true;
             }
         }

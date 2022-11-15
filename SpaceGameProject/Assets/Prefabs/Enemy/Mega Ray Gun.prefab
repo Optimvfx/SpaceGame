@@ -107,7 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Ray Gun
-  _bullet: {fileID: 2465105293048920033, guid: 4a647c3ac5e085d428f823238e139fb5, type: 3}
+  _lvl: 0
+  _bullet: {fileID: 545374428790871200, guid: 0d0e412e75827a445ae86b5e7b0ee666, type: 3}
   _rechargeTimeInSeconds:
     _value: 1.25
   _shootPoint: {fileID: 8037170364143480368}
@@ -285,10 +286,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6193910830626761988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90a374509e32646bbae5e02f34a66f, type: 3}
+  m_Script: {fileID: 11500000, guid: 18bf7820393428a43a0ce06a822de201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 6668416280909509750, guid: 2704565f58de4034691b9b829f9f03e0, type: 3}
+  _prefab: {fileID: 1820891082450572214, guid: f574da809dadc3648894a4fae0be105a, type: 3}
+  _zRotation: 0
+  _rotate: 0
 --- !u!114 &764012309422247562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,10 +301,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6193910830626761988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b90a374509e32646bbae5e02f34a66f, type: 3}
+  m_Script: {fileID: 11500000, guid: 18bf7820393428a43a0ce06a822de201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1820891082450572214, guid: f574da809dadc3648894a4fae0be105a, type: 3}
+  _prefab: {fileID: 6668416280909509750, guid: 2704565f58de4034691b9b829f9f03e0, type: 3}
+  _zRotation: 0
+  _rotate: 0
 --- !u!1 &6567766747918992657
 GameObject:
   m_ObjectHideFlags: 0

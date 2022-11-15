@@ -18,9 +18,7 @@ public class StandartSpaceGameApi : ISpaceGameApi
 
     private readonly HttpClient _httpClient;
 
-    private uint _virtualScore = 0;
-
-    public uint VirtualScore => _virtualScore;
+    public uint VirtualScore { get; private set; }
 
     public StandartSpaceGameApi()
     {
@@ -36,7 +34,7 @@ public class StandartSpaceGameApi : ISpaceGameApi
     {
         var balanse = await GetAsk<Balance>(_getBalanceAsk);
 
-        return balanse.Total + _virtualScore;
+        return balanse.Total + VirtualScore;
     }
 
     public async Task<TopMenu.PlayerTop> GetTop()
@@ -53,10 +51,7 @@ public class StandartSpaceGameApi : ISpaceGameApi
 
     public void SetVirtualScore(uint score)
     {
-        if (score < 0)
-            throw new System.ArgumentException();
-
-        _virtualScore = score;
+        VirtualScore = score;
     }
 
     private async void PushAsk(string askTarget)

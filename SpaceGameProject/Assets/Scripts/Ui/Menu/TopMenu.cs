@@ -9,7 +9,7 @@ public class TopMenu : MonoBehaviour
     [Header("Top")]
     [SerializeField] private uint _topLength;
     [SerializeField] private PlayerTop _playerTop;
-    [SerializeField] private PlayerInfoVisualization _playerInfoVisualization;
+    [SerializeField] private PlayerInfoVisualization _playerInfoVisualizationPrefab;
     [SerializeField] private PlayerInfoVisualization _emptyPlayerInfoVisualization;
     [SerializeField] private Transform _container;
 
@@ -33,7 +33,7 @@ public class TopMenu : MonoBehaviour
 
         foreach (var player in _playerTop.GetTop())
         {
-            var newVisualizetion = Instantiate(_playerInfoVisualization, _container);
+            var newVisualizetion = Instantiate(_playerInfoVisualizationPrefab, _container);
 
             newVisualizetion.Visualize(player, topIndex);
 
@@ -42,7 +42,7 @@ public class TopMenu : MonoBehaviour
             topIndex++;
         }
 
-        for(int i = (int)topIndex - 1; i < _topLength ; i++)
+        for(uint i = topIndex - 1; i < _topLength ; i++)
         {
             var newVisualizetion = Instantiate(_emptyPlayerInfoVisualization, _container);
 

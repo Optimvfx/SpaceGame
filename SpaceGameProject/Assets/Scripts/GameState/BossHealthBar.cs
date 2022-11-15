@@ -4,8 +4,8 @@ using UnityEngine;
 public class BossHealthBar : MonoBehaviour
 {
     [SerializeField] private TMP_Text _lable;
-    [SerializeField] private HealthBar[] _healthBars;
-    [SerializeField] private GoToBossPastTime _observable;
+    [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private TransiterToBossPastTime _observable;
 
     private void OnEnable()
     {
@@ -25,20 +25,14 @@ public class BossHealthBar : MonoBehaviour
 
         _lable.gameObject.SetActive(true);
 
-        foreach (var healthBar in _healthBars)
-        {
-            healthBar.Init(enemy.Health);
-            healthBar.gameObject.SetActive(true);
-        }
+        _healthBar.Init(enemy.Health);
+        _healthBar.gameObject.SetActive(true);
     }
 
     private void Hide()
     {
         _lable.gameObject.SetActive(false);
 
-        foreach (var healthBar in _healthBars)
-        {
-            healthBar.gameObject.SetActive(false);
-        }
+        _healthBar.gameObject.SetActive(false);
     }
 }

@@ -88,9 +88,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Enemy Laser
-  _bullet: {fileID: 1444066478645590612, guid: 7463731792ef8b04bb6376743d2b6ba8, type: 3}
+  _lvl: 0
+  _bullet: {fileID: 1720486174264445858, guid: 0554190885142dc4682c57d9b5295eb3, type: 3}
   _rechargeTimeInSeconds:
     _value: 0.15
   _shootPoint: {fileID: 2550878232066544433}
-  _extraAngle: 0
-  _rotationExemple: {fileID: 0}
