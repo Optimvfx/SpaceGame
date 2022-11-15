@@ -4339,7 +4339,7 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 3201352633532471320, guid: ad763f8a4e3370e459d3559d4bfdc407, type: 3}
   _spawnPoint: {x: 0, y: 12}
   _waitTimeInSecond:
-    _value: 1
+    _value: 60
   _onSpawn:
     m_PersistentCalls:
       m_Calls:

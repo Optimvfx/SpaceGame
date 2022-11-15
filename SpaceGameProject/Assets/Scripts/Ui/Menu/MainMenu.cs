@@ -32,25 +32,11 @@ public class MainMenu : Menu
 
         Time.timeScale = 1;
 
-        try
-        {
-            var hardnes = await SpaceGameApiSingleton.StandartSpaceGameApi.GetMoney();
-            var top = await SpaceGameApiSingleton.StandartSpaceGameApi.GetTop();
+        var hardnes = await SpaceGameApiSingleton.StandartSpaceGameApi.GetMoney();
+        var top = await SpaceGameApiSingleton.StandartSpaceGameApi.GetTop();
 
-            GameScen.Load(new GameSceneArguments(hardnes, top, Application.isMobilePlatform));
-            _goingToGame = true;
-        }
-        catch
-        {
-            if (_canEnterNotLoadedGame)
-            {
-                var hardnes = SpaceGameApiSingleton.StandartSpaceGameApi.VirtualScore;
-                var top = new TopMenu.PlayerTop(new List<TopMenu.PlayerInfo>());
-
-                GameScen.Load(new GameSceneArguments(hardnes, top, Application.isMobilePlatform));
-                _goingToGame = true;
-            }
-        }
+        GameScen.Load(new GameSceneArguments(hardnes, top, Application.isMobilePlatform));
+        _goingToGame = true;
     }
 
     private void Exit()
