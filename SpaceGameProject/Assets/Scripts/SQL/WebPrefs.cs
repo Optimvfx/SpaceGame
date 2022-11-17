@@ -4,50 +4,48 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Linq;
 
-namespace WebPrefasSpace
+public static class WebPrefs
 {
-    public static class WebPrefs
+
+    public static void DeleteKey(string key)
     {
+        RemoveFromLocalStorage(key);
+    }
 
-        public static void DeleteKey(string key)
+    public static bool HasKey(string key)
+    {
+        try
         {
-            RemoveFromLocalStorage(key);
+            return (HasKeyInLocalStorage(key) == 1);
         }
-
-        public static bool HasKey(string key)
+        catch
         {
-            try
-            {
-                return (HasKeyInLocalStorage(key) == 1);
-            }
-            catch
-            {
-                return false;
-            }
+            return false;
         }
+    }
 
-        public static string GetString(string key)
-        {
-            return LoadFromLocalStorage(key);
-        }
+    public static string GetString(string key)
+    {
+        return LoadFromLocalStorage(key);
+    }
 
-        public static void SetString(string key, string value)
-        {
+    public static void SetString(string key, string value)
+    {
 #if UNITY_WEBGL
         SaveToLocalStorage(key, value);
 #else
-            throw new InvalidProgramException();
+        throw new InvalidProgramException();
 #endif
 
-        }
+    }
 
-        public static void Save()
-        {
+    public static void Save()
+    {
 
 #if !UNITY_WEBGL
-            UnityEngine.PlayerPrefs.Save();
+        UnityEngine.PlayerPrefs.Save();
 #endif
-        }
+    }
 
 #if UNITY_WEBGL
       [DllImport("__Internal")]
@@ -62,5 +60,4 @@ namespace WebPrefasSpace
       [DllImport("__Internal")]
       private static extern int HasKeyInLocalStorage(string key);
 #endif
-    }
 }
