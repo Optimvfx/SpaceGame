@@ -2,32 +2,42 @@ using UnityEngine;
 
 public static class SpaceGameApiSingleton
 {
+    
     private const string _apiKeyTokenKey = "token";
 
-    private static StandartSpaceGameApi _standartSpaceGameApi;
+    private static ISpaceGameApi _gameAPI;
 
-    public static StandartSpaceGameApi StandartSpaceGameApi
+    public static ISpaceGameApi GameAPI
     {
         get
         {
-            if (_standartSpaceGameApi == null)
+            if (_gameAPI == null)
             {
-                _standartSpaceGameApi = new StandartSpaceGameApi();
-                _standartSpaceGameApi.Authorise(GetApiKey());
+//#if UNITY_WEBGL && !UNITY_EDITOR
+#if UNITY_WEBGL
+                _gameAPI = new WebGLGameAPI();
+#else
+                _gameAPI = new StandaloneGameAPI();
+#endif
+                _gameAPI.Authorise(GetApiKey());
             }
 
-            return _standartSpaceGameApi;
+            return _gameAPI;
         }
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void CleanupGameAPI()
+    {
+        _gameAPI = null;
     }
 
     private static string GetApiKey()
     {
-        var apiKey = WebApi.GetString(_apiKeyTokenKey);
+        var apiKey = Storage.GetString(_apiKeyTokenKey);
 
-        WebApi.PrintJSLine("2 " + apiKey);
+        Storage.PrintJSLine("2 " + apiKey);
 
         return apiKey;
-
-        throw new System.NullReferenceException();
     }
 }
