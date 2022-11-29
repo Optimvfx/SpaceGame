@@ -39,7 +39,7 @@ public class MainMenu : Menu
         if (loadArguments == null)
             return;
 
-         GameScen.LoadAsync(loadArguments);
+        GameScen.LoadAsync(loadArguments);
 
         _goingToGame = true;
     }
@@ -51,42 +51,42 @@ public class MainMenu : Menu
 
         try
         {
-            WebApi.PrintJSLine("1");
+            Storage.PrintJSLine("1");
 
-            hardnes = await SpaceGameApiSingleton.StandartSpaceGameApi.GetMoney();
+            hardnes = await SpaceGameApiSingleton.GameAPI.GetMoney();
 
-            WebApi.PrintJSLine("3");
+            Storage.PrintJSLine("3");
 
-            top = await SpaceGameApiSingleton.StandartSpaceGameApi.GetTop();
+            top = await SpaceGameApiSingleton.GameAPI.GetTop();
 
-            WebApi.PrintJSLine("4");
+            Storage.PrintJSLine("4");
 
             return new GameSceneArguments(hardnes, top, Application.isMobilePlatform);
 
-            WebApi.PrintJSLine("5");
+            Storage.PrintJSLine("5");
         }
         catch(Exception ex)
         {
-            WebApi.PrintJSLine(ex.ToString() + ex.Message + ex.StackTrace + ex.Source);
+            Storage.PrintJSLine(ex.ToString() + ex.Message + ex.StackTrace + ex.Source);
 
             return null;
         }
 
-        try
-        {
-        }
-        catch
-        {
-            hardnes = SpaceGameApiSingleton.StandartSpaceGameApi.VirtualScore;
-            top = new TopMenu.PlayerTop(new List<TopMenu.PlayerInfo>());
-
-            if (_canEnterNotLoadedGame)
-            {
-                return (new GameSceneArguments(hardnes, top, Application.isMobilePlatform));
-            }
-
-            return null;
-        }
+        // try
+        // {
+        // }
+        // catch
+        // {
+        //     hardnes = SpaceGameApiSingleton.StandartSpaceGameApi.VirtualScore;
+        //     top = new TopMenu.PlayerTop(new List<TopMenu.PlayerInfo>());
+        //
+        //     if (_canEnterNotLoadedGame)
+        //     {
+        //         return (new GameSceneArguments(hardnes, top, Application.isMobilePlatform));
+        //     }
+        //
+        //     return null;
+        // }
     }
 
     private void Exit()

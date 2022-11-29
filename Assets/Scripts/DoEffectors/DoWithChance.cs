@@ -3,18 +3,17 @@ using UnityEngine.Events;
 
 public class DoWithChance : MonoBehaviour
 {
-    private readonly UFloat _maxChanse = 100;
+	private readonly float _maxChance = 100;
 
-    [SerializeField] private UnityEvent _do;
+	[SerializeField] private UnityEvent _do;
 
-    [Range(0f, 100f)]
-    [SerializeField] private float _chanñe;
+	[Range(0f, 100f)] [SerializeField] private float chance;
 
-    public void TryDo()
-    {
-        var randomValue = Random.Range(0, _maxChanse);
+	public void TryDo()
+	{
+		var randomValue = Random.Range(0, _maxChance);
 
-        if(randomValue < _chanñe)
-            _do?.Invoke();
-    }
+		if (randomValue < chance)
+			_do?.Invoke();
+	}
 }

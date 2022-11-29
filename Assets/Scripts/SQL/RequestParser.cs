@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-public class RequestParser : MonoBehaviour
+public static class RequestParser
 {
-    private readonly List<char> _spleatChar = new List<char>(new[] { '{', '}', '[', ']' });
-    private readonly List<char> _removeChar = new List<char>(new[] { ',' });
+    private static readonly List<char> _spleatChar = new List<char>(new[] { '{', '}', '[', ']' });
+    private static readonly List<char> _removeChar = new List<char>(new[] { ',' });
 
-    public List<string> Parse(string from)
+    public static List<string> Parse(string from)
     {
         var result = new List<string>();
 

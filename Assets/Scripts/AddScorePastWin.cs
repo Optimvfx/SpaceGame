@@ -16,6 +16,6 @@ public class AddScorePastWin : MonoBehaviour
 
     private void AddScore()
     {
-        SpaceGameApiSingleton.StandartSpaceGameApi.LevelUp();
+        SpaceGameApiSingleton.GameAPI.LevelUp();
     }    
 }

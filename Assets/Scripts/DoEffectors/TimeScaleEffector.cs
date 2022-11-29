@@ -14,7 +14,7 @@ public class TimeScaleEffector : MonoBehaviour
         if (_timeStopEffectsGivers.Contains(stopTimeEffect))
             return;
 
-            _timeStopEffectsGivers.Add(stopTimeEffect);
+        _timeStopEffectsGivers.Add(stopTimeEffect);
 
         ChangeTimeScale();
     }
